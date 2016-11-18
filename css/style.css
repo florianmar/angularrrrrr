@@ -1,0 +1,27 @@
+ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+h3{
+  text-align: center;
+}
+.civilite{
+  display:flex;
+  justify-content: space-around;
+}
+.desc{
+  display: flex;
+  justify-content: space-around;
+}
+.sub{
+  margin-left: 461px;
+    margin-top: 21px;
+}
+.d{
+  display: flex;
+  justify-content: space-around;
+}
+.vill{
+      margin-left: -32px;
+}

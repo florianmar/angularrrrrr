@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular Merkel</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body  ng-app='appUsers'>
+
+
+    <section ng-controller='UsersCtrl'>
+
+  <div class="container">
+
+      <h3>Gestion des utilisateurs</h3>
+
+
+
+
+      <select class="btn-primary" name="">
+        <option value="option">Le plus jeune</option>
+        <option value="option">Le plus Vieux</option>
+      </select>
+      <input type="checkbox" name="majeur" value="">Are you majeur ?
+
+      <input type="radio" name="Lyon" value=""> Lyon
+      <input type="radio" name="Marseille" value=""> Marseille
+      <input type="radio" name="paris" value=""> Paris
+      <input type="radio" name="alltown" value=""> All town
+
+
+
+
+      <hr/>
+
+
+
+
+
+
+
+
+
+
+    <ul>
+
+      <li ng-repeat="user in users | orderBy:'-age'">
+
+        <button class='btn btn-danger'type="button" name="button"ng-click='removeUser(user)'>Delete</button>
+
+
+        <p ng-if='user.sexe == true'>Homme</p>
+        <p ng-if='user.sexe == false'>Femme</p>
+
+        <p>{{user.nom}} {{user.prenom}}  </p>
+        <p> Habite à : {{user.ville}} </p>
+        <p> {{user.age}} ans </p>
+
+        <img ng-src="{{user.img}}" width='100'height='100'alt="" />
+      </li>
+    </ul>
+
+<hr>
+    <div class="" >
+
+    <h3> Ajouter un utilisateur</h3>
+
+
+
+
+
+    <form ng-submit='ajouterUser()'>
+      <div class="civilite">
+
+
+      <div class="form-group">
+          <label for="Homme">Homme</label>
+          <input id='Homme'type="radio" name="sexe" ng-model='sexe'>
+          <label for="Femme">Femme</label>
+          <input id='Femme'type="radio" name="sexe" ng-model='sexe'>
+      </div>
+      <div class="form-group">
+        <input placeholder="nom"type="text" name="nom" ng-model='nom'>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="prenom"name="prenom" ng-model='prenom'>
+      </div>
+      </div>
+      <div class="desc">
+
+
+      <div class="form-group">
+        <input type="text" placeholder="age"name="age" ng-model='age'>
+      </div>
+      <div class="form-group">
+        <input class='vill'type="text" placeholder='ville' name="vile" ng-model='ville'>
+      </div>
+      <div class='form-group' >
+        <input class="" type="url" placeholder="image"name="image" ng-model='img'alt="">
+      </div>
+      </div>
+      <div class="sub">
+
+
+      <button class='btn-primary'type="submit" name="button">Enregistrer cet utilisateur</button>
+      </div>
+
+    </form>
+    </div>
+
+    </section>
+
+
+
+
+
+
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src='js/user.js'></script>
+
+
+
+
+
+
+
+  </body>
+</html>

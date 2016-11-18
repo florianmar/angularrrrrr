@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <!--iniatialisation de l'application ou module -->
+  <body ng-app='myApp'>
+  <div ng-controller="myController">
+
+    <h3> {{nom}} {{prenom}} </h3>
+
+<a ng-click='modifierPrenom()'>Modifies mon prenom et appelle moi Guy</a>
+
+    <!-- ng model:c'est une directive qui permet d'intéragir avec des variables dans la scope-->
+
+    <input type="text" ng-model="nom" name="name">
+
+    <input type="text" ng-model="prenom" name="name">
+    <input placeholder='revenu'ng-model='salaire'type="text" name="name">
+
+    <input placeholder='imposition en %' ng-model='impot' ng-blur="calculPercentage()" type="text" name="name">
+    <label for="">Salaire en Franc</label>
+    <input type="checkbox" ng-change='franc()' ng-model="conversion" value="coche">
+
+
+
+  <!-- ALERT      -->
+    <div ng-if='nom === prenom'
+    >Attention votre nom doit etre différent du prénom"
+
+    </div>
+
+    <div ng-if="nom.length > 20">votre texte est trop long !
+
+    </div>
+
+
+
+
+
+    <div class="alert alert-info gold" ng-if="salaire >= 1000000 && nom == 'Trump'">je suis pres
+    </div>
+
+
+
+<!-- boutton-->
+
+     <button ng-click="afficheInfos()" type="button" class="btn btn-primary btn-sm">affiche les détails</button>
+      <button ng-click="formatage()" type="button" class="btn btn-primary btn-sm">reformater</button>
+
+    <div class="jumbotron" ng-if='seeDetail'ng-class="{'alert-danger': salaire < 1000,'alert-warning':salaire < 2500,'alert-success':salaire > 2500}">
+        <h1>{{nom}}</h1>
+        <p>{{prenom}}</p>
+        <p>{{salaire}}</p>
+        <p>{{impot}}</p>
+
+    </div>
+
+  </div>
+
+
+  <!--+ Ajouter le champs input text Salaire
+  Si le Salaire est supérieur à 1 000 000€ et que le nom est Trump
+  + Afficher "Je suis président" dans une alert boostrapp
+  + Créer un boutton "Voir le détail" pour afficher le nom, le prénom et le salaire dans une div Jumbotron
+  + Créer un bouton "Reformatter" qui permet au clique de formatter
+   - le Nom avec la premiere lettre en majuscule
+   - le Prénom avec la premiere lettre en majuscule
+   et les espaces remplacés par des tirets
+   - Le Salaire formatter en € avec des espaces et virgules
+
+  + A l'évenement blug (ng-blur) si le prénom est égal au nom,
+  afficher "Attention votre nom doit etre différent du prénom"
+
+  + A l'évenement keyup (ng-keyup) du salaire, changer la couleur du champs salaire par 3 classes CSS
+  avec l'instruction "ng-class"
+   - salaire petit: color red
+   - salaire moyen: color orange
+   - salaire grand: color vert
+   - salaire énorme: color gold
+
+
+// Ajouter un champs "Imposition en %" en pourcentage
+qui va modifier au keyup la valeur du Salaire brut en net automatiquement -->
+
+<!--// Mettre en place un environement GULP (et ses composants) et Bower
+
+// Créer une checkbox avec un label permettant de modifier le salaire
+en le  convertissant en Francs et d'afficher "salaire en franc" juste après l'input
+
+// Créer un input qui permet de saisir son email et verifie si son email est en .com
+// afficher un message d'erreur si l'email est invalide
+
+// Créer un input "range" (de 1 à 10) qui augmente ou diminue l'imposition par la valeur de l'input range
+
+// Créer un select avec les options suivante:
+ - Imposition à 10%
+  - Imposition à 20%
+ - Imposition à 30%
+ - Imposition à 50%
+  - Imposition à 75%
+A chaque changement (ng-change), cela modifie le salaire et l'imposition en % -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--angular---------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/main.js">
+
+    </script>
+  </body>
+</html>
